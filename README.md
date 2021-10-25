@@ -2,6 +2,9 @@
 
 This guide is intended for setting up an existing Maven project to create BlueJ compatible project jars.
 
+Alternative build systems:
+- [Gradle plugin for building BlueJ jars](https://github.com/KCLOSS/gradle-bluej-jar)
+
 ## Setup Guide
 
 This is the setup guide for any machine, there is a Linux specific guide below too but I recommend using Powershell since you get more control with less fiddling around.
