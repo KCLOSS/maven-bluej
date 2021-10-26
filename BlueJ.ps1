@@ -1,11 +1,12 @@
 # Maven to BlueJ helper script
 # Author: Pawel Makles <https://insrt.uk>
 # Repository: https://github.com/KCLOSS/maven-bluej
-# Version: 0.1
+# Version: 0.2
 
 param (
     [switch]$Build = $false,
     [switch]$Run = $false,
+    [switch]$NoClean = $false,
 
     [string]$BlueJ = "C:/Program Files/BlueJ/BlueJ.exe",
     [string]$TestDirectory = "test",
@@ -53,6 +54,8 @@ if ($Run) {
     $Path = Resolve-Path "$TestDirectory/out.jar"
     Start-Process -NoNewWindow -FilePath $BlueJ -ArgumentList $Path -Wait
 
-    # Clean up afterwards
-    Remove-Item $TestDirectory -Recurse
+    if (-Not $NoClean) {
+        # Clean up afterwards
+        Remove-Item $TestDirectory -Recurse
+    }
 }

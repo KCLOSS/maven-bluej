@@ -83,6 +83,7 @@ The Powershell script has several parameters you may specify:
 |-----------|------|-------------|---------|
 | `Build` | Switch | Set to tell the script to build the BlueJ jar. | false |
 | `Run` | Switch | Set to tell the script to run BlueJ with the jar. | false |
+| `NoClean` | Switch | Will not destroy test directory after closing BlueJ. | false |
 | `BlueJ` | String | Path to BlueJ executable. | `C:/Program Files/BlueJ/BlueJ.exe` |
 | `TestDirectory` | String | Directory to -Run the project in. | `test` |
 | `OutFile` | String | Where to export the BlueJ jar. | `target/bluej_out.jar` |
@@ -91,7 +92,7 @@ The Powershell script has several parameters you may specify:
 ## Notes
 
 - You do not need to do any additional work to configure BlueJ, each time it's imported, BlueJ performs a final conversion and creates the `package.bluej` files that are missing.
-- Class diagrams will not be preserved in anyway unless if you keep a resulting project, this is intentional as to remove any BlueJ clutter from the original project. If you need to print the class diagram, I recommend finishing your project then doing it once at the end.
+- Class diagrams need to be manually created and added to your source files, for example, run `./BlueJ.sh -Run -NoClean`, organise your class diagrams then exit out. Copy over any meaningful `package.bluej` files into your source code, these will be bundled as such when you export.
 - You **do not** need to bundle any extra dependencies manually, e.g. adding to the `+jars` folder like in BlueJ, you can simply pull them in through Maven.
 
     Dependencies are exported in the JAR alongside your source and classes, BlueJ can discover these just fine and it is unnecessary to include the dependencies twice.
