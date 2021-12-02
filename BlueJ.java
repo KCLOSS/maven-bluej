@@ -1,5 +1,3 @@
-package uk.insrt.coursework.zuul.util;
-
 import java.lang.reflect.Field;
 import java.net.URLClassLoader;
 import java.util.Vector;
